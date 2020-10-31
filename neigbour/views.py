@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login, logout, authenticate
 
 
 def signup(request):
@@ -10,6 +11,19 @@ def signup(request):
             form.save()
 
     return render(request,'accounts/signup.html',{"form":form})
+def loginpage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+    
+        user = authenticate(request, username = username, password = password)
+
+        if user is not None:
+            login(request, user)
+
+
+    return render(request, 'accounts/login.html')
+
 
 
 # Create your views here.
