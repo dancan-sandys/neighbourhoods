@@ -24,6 +24,9 @@ def loginpage(request):
 
     return render(request, 'accounts/login.html')
 
+def logoutuser(request):
+    logout(request)
+    return redirect(loginpage)
 
 
 # Create your views here.
