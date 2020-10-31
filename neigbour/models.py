@@ -24,7 +24,7 @@ class user(models.Model):
     Profilephoto = models.ImageField()
     Email = models.CharField(max_length = 30)
     Phone = models.IntegerField()
-    Neighbourhood =models.ForiegnKey(neighbourhood, on_delete = models.CASCADE)
+    Neighbourhood =models.ForeignKey(neighbourhood, on_delete = models.CASCADE)
 
     def saveuser(self):
         self.save()
@@ -35,10 +35,10 @@ class user(models.Model):
 
 class Business(models.Model):
     Name = models.CharField(max_length = 30)
-    owner = models.ForiegnKey(user, on_delete = models.CASCADE)
+    owner = models.ForeignKey(user, on_delete = models.CASCADE)
     category = models.CharField(max_length = 60)
     Description = models.CharField(max_length = 30)
-    Neighbourhood = models.ForiegnKey(neighbourhood, on_delete =  models.CASCADE)
+    Neighbourhood = models.ForeignKey(neighbourhood, on_delete =  models.CASCADE)
     Email = models.CharField(max_length= 30)
     Phone = models.IntegerField()
 
