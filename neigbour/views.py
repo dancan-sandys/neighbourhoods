@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from .models import user, Business, neighbourhood
+from .forms import accounts
 
 
 def signup(request):
@@ -59,3 +60,16 @@ def businesses(request):
     allbusinesses = Business.objects.all()
 
     return render(request, 'businesses.html',{"businesses":allbusinesses})
+
+def createaccount(request):
+    form =accounts()
+    if request.method == 'POST':
+        form = accounts(request.POST, request.FILES)
+        if form.is_valid():
+            account = form.save(commit=False)
+            account.user = request.user
+            account.save()
+        
+            return redirect(home)
+
+    return render(request, 'createuser.html',{"form":form})
