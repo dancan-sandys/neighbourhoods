@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -20,7 +21,7 @@ class neighbourhood(models.Model):
         return searchresults
 
 class user(models.Model):
-    Name = models.CharField(max_length = 30)
+    user = models.ForeignKey(User,on_delete = models.CASCADE)
     Profilephoto = models.ImageField()
     Email = models.CharField(max_length = 30)
     Phone = models.IntegerField()
