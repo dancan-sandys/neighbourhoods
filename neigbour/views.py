@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from .models import user, Business, neighbourhood
-from .forms import accounts
+from .forms import accounts, businessaccount
 
 
 def signup(request):
@@ -42,24 +42,24 @@ def myneigbourhood(request):
     User = user.objects.get(user = User)
     Neighbourhood = User.Neighbourhood
 
-    return render(request, 'myneigbourhood.html',{"user":User, "myneighbourhood":Neighbourhood})
+    return render(request, 'Neigbourhoods/myneigbourhood.html',{"user":User, "myneighbourhood":Neighbourhood})
 
 def profile(request):
     User = request.user
     User = user.objects.get(user = User)
 
-    return render(request, 'profile.html',{"account":User })
+    return render(request, 'users/profile.html',{"account":User })
 
 
 def allneighbourhoods(request):
     neighbourhoods = neighbourhood.objects.all()
 
-    return render(request, 'allneighbourhoods.html',{"neigbourhoods":neighbourhoods})
+    return render(request, 'Neigbourhoods/allneighbourhoods.html',{"neigbourhoods":neighbourhoods})
 
 def businesses(request):
     allbusinesses = Business.objects.all()
 
-    return render(request, 'businesses.html',{"businesses":allbusinesses})
+    return render(request, 'Business/businesses.html',{"businesses":allbusinesses})
 
 def createaccount(request):
     form =accounts()
@@ -72,4 +72,18 @@ def createaccount(request):
         
             return redirect(home)
 
-    return render(request, 'createuser.html',{"form":form})
+    return render(request, 'users/createuser.html',{"form":form})
+
+def createbusiness(request):
+    form = businessaccount()
+    if request.method == 'POST':
+        form = businessaccount(request.POST, request.FILES)
+        if form.is_valid():
+            business = form.save(commit=False)
+            business.owner = request.user
+            business.save()
+
+            return redirect('profile')
+
+
+    return render(request, 'Business/create.html',{"form":form})

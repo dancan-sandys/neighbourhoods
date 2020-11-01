@@ -6,3 +6,8 @@ class accounts(forms.ModelForm):
         model= user
         exclude = ['user']
 
+class businessaccount(forms.ModelForm):
+    class Meta:
+        model = Business
+        exclude = ['owner']
+
