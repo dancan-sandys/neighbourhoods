@@ -1,6 +1,47 @@
+{%block styles%}
+<link rel="stylesheet" href="../../static/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/accounts.css">
 
-<form action="" method="POST">
-    {%csrf_token%}
-    {{form}}
-    <button type="submit">Submit</button>
-</form>
+{%endblock%}
+<div class="background">
+
+</div>
+
+    <div class="signupform">
+
+        <form action="" class="form" method="POST">
+
+            {%csrf_token%}
+
+            <h1>Create an Account</h1>
+
+            <div class="username input" id="username">
+
+                {{form.username}}
+
+            </div>
+            <div class="password1 input">
+
+                {{form.password1}}
+
+            </div>
+            <div class="password2 input">
+                {{form.password2}}
+
+            </div>
+
+            <button type="submit">Sign Up</button>
+            
+            <p>Have an account, <a href="{%url 'login'%}">Log in</a></p>
+
+        </form>
+       
+    </div>
+ 
+
+
+{%block script%}
+
+<script src="../../static/js/main.js"></script>
+
+{%endblock%}

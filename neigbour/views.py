@@ -11,7 +11,7 @@ def signup(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(loginpage)
+            return redirect(createaccount)
 
     return render(request,'accounts/signup.html',{"form":form})
 
@@ -34,8 +34,9 @@ def logoutuser(request):
     return redirect(loginpage)
 
 def home(request):
+    neighbourhoods = neighbourhood.objects.all()
 
-    return render(request, 'home.html')
+    return render(request, 'home.html', {"neigbourhoods":neighbourhoods})
 
 def myneigbourhood(request):
     User = request.user
@@ -87,3 +88,4 @@ def createbusiness(request):
 
 
     return render(request, 'Business/create.html',{"form":form})
+    
