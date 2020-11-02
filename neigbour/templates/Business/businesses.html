@@ -11,13 +11,12 @@
 <div class="businesses">
     {%for business in ourbusinesses%}
     <div class="business card">
-        <p>Category: {{business.category}}</p>
-        <p>{{business.Name}}</p>
-        <p>{{business.owner.username}}</p>
-        <p>{{business.Description}}</p>
-        <p>{{business.Neighbourhood.Name}}</p>
-        <p>{{business.Email}}</p>
-        <p>{{business.Phone}}</p>
+        <p><strong>Category:</strong>{{business.category}}</p>
+        <p><strong>Name:</strong>{{business.Name}}</p>
+        <p><strong>Owner:</strong>{{business.owner.username}}</p>
+        <p><strong>Neighbourhood:</strong>{{business.Neighbourhood.Name}}</p>
+        <p><strong>Email:</strong>{{business.Email}}</p>
+        <p><strong>Phone:</strong>{{business.Phone}}</p>
 
     </div>
     {%endfor%}
@@ -27,13 +26,12 @@
 <div class="businesses">
     {%for business in businesses%}
     <div class="business card">
-        <p>Category: {{business.category}}</p>
-        <p>{{business.Name}}</p>
-        <p>{{business.owner.username}}</p>
-        <p>{{business.Description}}</p>
-        <p>{{business.Neighbourhood.Name}}</p>
-        <p>{{business.Email}}</p>
-        <p>{{business.Phone}}</p>
+        <p><strong>Category:</strong>Category: {{business.category}}</p>
+        <p><strong>Name:</strong>{{business.Name}}</p>
+        <p><strong>Owner:</strong>{{business.owner.username}}</p>
+        <p><strong>Neighbourhood:</strong>{{business.Neighbourhood.Name}}</p>
+        <p><strong>Email:</strong>{{business.Email}}</p>
+        <p><strong>Phone:</strong>{{business.Phone}}</p>
 
     </div>
     {%endfor%}

@@ -17,11 +17,25 @@ input{
     height: 5vh;
 }
 
-form{
+.create{
     padding: 5%;
 }
 
 
 select{
     width: 20%;
+}
+img{
+    width: 100%;
+    height: 50vh;
+
+}
+
+.singlebusiness{
+    padding: 5%;
+}
+
+
+.message{
+    padding: 20% 10%;
 }

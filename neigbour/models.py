@@ -50,8 +50,10 @@ class Business(models.Model):
     def deletebusiness(self):
         self.delete()
 
+    @classmethod
     def searchbusiness(cls, category):
         searchresults = cls.objects.filter(category = category)
+        return searchresults
 
 
 

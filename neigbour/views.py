@@ -109,4 +109,21 @@ def createbusiness(request):
 
 
     return render(request, 'Business/create.html',{"form":form, "neighbourhoods":neighbourhoods})
-    
+
+def searchbusiness(request):
+    if 'category' in request.GET and request.GET['category']:
+        searchedcategory = request.GET.get("category")
+        searchresults = Business.searchbusiness(searchedcategory)
+        if searchresults:
+            return render(request,'search.html', {"results":searchresults})
+
+        else:
+            message = "Sorry! The category you entered is not yet available"
+
+            return render(request,'search.html',{"message":message})   
+
+    else:
+        message = "Sorry! The category you entered is not yet available"
+
+        return render(request,'search.html',{"message":message})        
+

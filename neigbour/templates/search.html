@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{%block styles%}
+{{block.super}}
+<link rel="stylesheet" href="../static/css/business.css">
+{%endblock%}
+{%if message%}
+<h1 class="text-center message">{{message}}</h1>
+{%endif%}
+
+{%for result in results%}
+<div class="singlebusiness container row">
+    <div class="col-md-5">
+        <p><strong>Category:</strong> {{result.category}}</p>
+        <p><strong>Name:</strong>{{result.Name}}</p>
+        <p><strong>Owner:</strong>{{result.owner.username}}</p>
+        <p><strong>Neighbourhood:</strong>{{result.Neighbourhood.Name}}</p>
+        <p><strong>Email:</strong>{{result.Email}}</p>
+        <p><strong>Phone:</strong>{{result.Phone}}</p>
+    </div>
+    <div class="col-md-4">
+        <h5><strong> Description:</strong></h5><p>{{business.Description}}</p>
+    </div>
+</div>
+{%endfor%}
+{%endblock%}

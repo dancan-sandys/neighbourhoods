@@ -2,23 +2,30 @@
 
 {%block content%}
 {%block styles%}
-    {{block.super}}
-    <link rel="stylesheet" href="../../static/css/bootstrap.css">
-   
-    
+{{block.super}}
+<link rel="stylesheet" href="../../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/business.css">
+
+
 {%endblock%}
 
-    
-    <div class="business card">
-        <p>Category: {{business.category}}</p>
-        <p>{{business.Name}}</p>
-        <p>{{business.owner.username}}</p>
-        <p>{{business.Description}}</p>
-        <p>{{business.Neighbourhood.Name}}</p>
-        <p>{{business.Email}}</p>
-        <p>{{business.Phone}}</p>
+<img src="https://images.pexels.com/photos/5028920/pexels-photo-5028920.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+    alt="">
 
+
+<div class="singlebusiness container row">
+    <div class="col-md-5">
+        <p><strong>Category:</strong> {{business.category}}</p>
+        <p><strong>Name:</strong>{{business.Name}}</p>
+        <p><strong>Owner:</strong>{{business.owner.username}}</p>
+        <p><strong>Neighbourhood:</strong>{{business.Neighbourhood.Name}}</p>
+        <p><strong>Email:</strong>{{business.Email}}</p>
+        <p><strong>Phone:</strong>{{business.Phone}}</p>
     </div>
+    <div class="col-md-4">
+        <h5><strong> Description:</strong></h5><p>{{business.Description}}</p>
+    </div>
+</div>
 
 
 
