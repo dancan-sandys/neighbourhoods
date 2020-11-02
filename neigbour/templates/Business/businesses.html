@@ -1,5 +1,25 @@
 {%extends 'base.html'%}
 
 {%block content%}
-{{businesses}}
+{%block styles%}
+    {{block.super}}
+    <link rel="stylesheet" href="../../static/css/business.css">
+
+{%endblock%}
+
+<div class="businesses">
+    {%for business in businesses%}
+    <div class="business card">
+        <p>{{business.Name}}</p>
+        <p>{{business.owner.username}}</p>
+        <p>{{business.category}}</p>
+        <p>{{business.Description}}</p>
+        <p>{{business.Neighbourhood.Name}}</p>
+        <p>{{business.Email}}</p>
+        <p>{{business.Phone}}</p>
+
+    </div>
+    {%endfor%}
+</div>
+
 {%endblock%}

@@ -1,0 +1,15 @@
+.businesses{
+    padding: 5%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    width: 100%;
+}
+
+.business{
+    padding: 4%;
+    margin: 2%;
+    width: 90%;
+    height: 60vh;
+}
+
+
