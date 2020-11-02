@@ -70,21 +70,22 @@ def businesses(request):
 
     return render(request, 'Business/businesses.html',{"businesses":allbusinesses, "ourbusinesses":neighbourhoodbusinesses})
 
+
 def createaccount(request):
     form =accounts()
     user = request.user
+    neighbourhoods = neighbourhood.objects.all()
     if request.method == 'POST':
         form = accounts(request.POST, request.FILES)
         if form.is_valid():
             account = form.save(commit=False)
-            print('Yes')
-            print(request.user)
+
             account.user = user        
             account.save()
         
             return redirect(home)
 
-    return render(request, 'users/createuser.html',{"form":form})
+    return render(request, 'users/createuser.html',{"form":form, "neighbourhoods":neighbourhoods})
 
 def createbusiness(request):
     form = businessaccount()

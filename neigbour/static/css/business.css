@@ -12,4 +12,16 @@
     height: 60vh;
 }
 
+input{
+    width: 45%;
+    height: 5vh;
+}
 
+form{
+    padding: 5%;
+}
+
+
+select{
+    width: 20%;
+}
