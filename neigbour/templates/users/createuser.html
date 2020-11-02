@@ -1,17 +1,35 @@
-
-
 {%block content%}
 {%block styles%}
 
-<link rel="stylesheet" href="../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/bootstrap.css">
+<link rel="stylesheet" href="../../static/css/profile.css">
 {%endblock%}
 
-
-<form action="" method="POST" enctype="multipart/form-data">
+<h1 class=" text-center setup">Set up your Profile</h1>
+<form action="" class="usercreation" method="POST" enctype="multipart/form-data">
     {%csrf_token%}
-    {{form}}
-    <input type="submit" value="submit">
+    <p><strong>Upload profile: </strong>{{form.Profilephoto}}</p>
+    <p>{{form.Email}}</p>
+    <p> {{form.Phone}}</p>
+    <p><strong>Select your neighbourhood:</strong>
+        <select name="neighbourhood">
+            {%for neighbourhood in neighbourhoods%}
+            <option value="{{neighbourhood.id}}">{{neighbourhood.Name}}</option>
+
+            {%endfor%}
+        </select>
+    </p>
+    <button type="submit" class="btn btn-dark" value="submit">Submit</button>
 
 </form>
+{%block script%}
+<script>
+    var formFields = document.getElementsByTagName('input')
+    formFields[2].placeholder = 'Email Address'
+    formFields[3].placeholder = 'Phone Number'
+
+</script>
+
+{%endblock%}
 
 {%endblock%}

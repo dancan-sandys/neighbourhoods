@@ -11,3 +11,25 @@
     width: 90%;
     height: 60vh;
 }
+
+input{
+    width: 60%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.usercreation{
+    align-items: center;
+    margin: 0%;
+    margin-left: 30%;
+    padding: 2%;
+
+}
+
+select{
+    width: 34.5%;
+}
+
+.setup{
+    padding-top: 3%;
+}

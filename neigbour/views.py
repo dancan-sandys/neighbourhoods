@@ -82,18 +82,21 @@ def singlebusiness(request, id):
 def createaccount(request):
     form =accounts()
     user = request.user
-    
+    neighbourhoods = neighbourhood.objects.all()
     if request.method == 'POST':
         form = accounts(request.POST, request.FILES)
         if form.is_valid():
             account = form.save(commit=False)
-
+            selectedneighbourhood = neighbourhood.objects.get(id = int(request.POST['neighbourhood']))
+            account.Neighbourhood = selectedneighbourhood
             account.user = user        
             account.save()
         
             return redirect(home)
 
-    return render(request, 'users/createuser.html',{"form":form})
+    return render(request, 'users/createuser.html',{"form":form, "neighbourhoods":neighbourhoods})
+
+
 
 def createbusiness(request):
     form = businessaccount()

@@ -34,6 +34,9 @@ class user(models.Model):
     def deleteuser(self):
         self.delete()
 
+    def update(self, profile):
+        profile.save()
+
 
 class Business(models.Model):
     Name = models.CharField(max_length = 30)
@@ -54,6 +57,8 @@ class Business(models.Model):
     def searchbusiness(cls, category):
         searchresults = cls.objects.filter(category = category)
         return searchresults
+
+    
 
 
 
