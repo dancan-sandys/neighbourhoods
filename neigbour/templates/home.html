@@ -1,7 +1,26 @@
 {%extends 'base.html'%}
 
 {%block content%}
+{%block styles%}
+{{block.super}}
+<link rel="stylesheet" href="../static/css/home.css">
+{%endblock%}
+<div class="background">
 
-{{neigbourhoods}}
+</div>
+<div class="neighbourhood">
+    <h1 class=" text-center text-white">
+        <small>Welcome to</small> {{myneighbourhood.Name}}
+    </h1>
+</div>
+<br>
+<div class="neigbourhoodinfo">
+    <h2 class="text-center">About My neighbourhood | <big>{{myneighbourhood.Name}}</big></h2>
+    <p class="text-dark container">
+        {{myneighbourhood.Info}}
+    </p>
+    <p class="text-center"> {{myneighbourhood.Name}} has {{myneighbourhood.Occupantscount}} occupants using this plattform so far</p>
+</div>
+
 
 {%endblock%}

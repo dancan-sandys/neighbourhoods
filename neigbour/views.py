@@ -10,7 +10,9 @@ def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            username = user.username
+            password = user.password
             return redirect(createaccount)
 
     return render(request,'accounts/signup.html',{"form":form})
@@ -34,9 +36,12 @@ def logoutuser(request):
     return redirect(loginpage)
 
 def home(request):
-    neighbourhoods = neighbourhood.objects.all()
+    User = request.user
+    User = user.objects.get(user = User)
+    Neighbourhood = User.Neighbourhood
 
-    return render(request, 'home.html', {"neigbourhoods":neighbourhoods})
+
+    return render(request, 'home.html', {"user":User, "myneighbourhood":Neighbourhood})
 
 def myneigbourhood(request):
     User = request.user
@@ -64,11 +69,14 @@ def businesses(request):
 
 def createaccount(request):
     form =accounts()
+    user = request.user
     if request.method == 'POST':
         form = accounts(request.POST, request.FILES)
         if form.is_valid():
             account = form.save(commit=False)
-            account.user = request.user
+            print('Yes')
+            print(request.user)
+            account.user = user        
             account.save()
         
             return redirect(home)
