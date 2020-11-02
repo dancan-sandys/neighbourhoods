@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'neigbourhoods/$', views.allneighbourhoods, name = 'allneighbourhoods'),
     url(r'businessses/$', views.businesses, name = 'businesses'),
     url(r'accounts/create/$', views.createaccount, name='createaccount'),
-    url(r'business/create/$',views.createbusiness, name='createbusiness')
+    url(r'business/create/$',views.createbusiness, name='createbusiness'),
+    url(r'business/single/(\d+)$', views.singlebusiness, name='single_business')
     
 ]

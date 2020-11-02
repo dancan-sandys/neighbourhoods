@@ -9,5 +9,5 @@ class accounts(forms.ModelForm):
 class businessaccount(forms.ModelForm):
     class Meta:
         model = Business
-        exclude = ['owner']
+        exclude = ['owner', 'Neighbourhood']
 

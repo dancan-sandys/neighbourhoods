@@ -71,10 +71,15 @@ def businesses(request):
     return render(request, 'Business/businesses.html',{"businesses":allbusinesses, "ourbusinesses":neighbourhoodbusinesses})
 
 
+def singlebusiness(request, id):
+    business = Business.objects.get(id = id)
+
+    return render(request , 'Business/single.html',{"business": business})
+
 def createaccount(request):
     form =accounts()
     user = request.user
-    neighbourhoods = neighbourhood.objects.all()
+    
     if request.method == 'POST':
         form = accounts(request.POST, request.FILES)
         if form.is_valid():
@@ -85,19 +90,23 @@ def createaccount(request):
         
             return redirect(home)
 
-    return render(request, 'users/createuser.html',{"form":form, "neighbourhoods":neighbourhoods})
+    return render(request, 'users/createuser.html',{"form":form})
 
 def createbusiness(request):
     form = businessaccount()
+    neighbourhoods = neighbourhood.objects.all()
     if request.method == 'POST':
         form = businessaccount(request.POST, request.FILES)
         if form.is_valid():
+            print(request.POST['neighbourhood'])
             business = form.save(commit=False)
+            selectedneighbourhood = neighbourhood.objects.get(id = int(request.POST['neighbourhood']))
+            business.Neighbourhood = selectedneighbourhood
             business.owner = request.user
             business.save()
 
             return redirect('profile')
 
 
-    return render(request, 'Business/create.html',{"form":form})
+    return render(request, 'Business/create.html',{"form":form, "neighbourhoods":neighbourhoods})
     

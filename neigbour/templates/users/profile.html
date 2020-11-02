@@ -1,6 +1,12 @@
 {%extends 'base.html'%}
 
 {%block content%}
+{%block styles%}
+{{block.super}}
+
+<link rel="stylesheet" href="../../static/css/profile.css">
+
+{%endblock%}
 <div class="profpic">
     <img src="{{account.Profilephoto}}" alt="i">
 </div>
@@ -12,16 +18,18 @@
     <p> Phone Number : {{account.Phone}}</p>
 </div>
 
-<div class="business">
-    <h4 class="text-center">My Businesses</h4>
-    <ul>
-        {%for business in businesses%}
-            <li>{{business.Name}}</li>
-            <p>Category : {{business.category}}</p>
-            <p>{{business.Description}}</p>
-            <p>This business is located in {{business.Neighbourhood.Name}} </p>
-        {%endfor%}
-    </ul>
-</div>
+<div class="businesses">
+    {%for business in businesses%}
+    <div class="business card">
+        <p>Category: {{business.category}}</p>
+        <p>{{business.Name}}</p>
+        <p>{{business.owner.username}}</p>
+        <p>{{business.Description}}</p>
+        <p>{{business.Neighbourhood.Name}}</p>
+        <p>{{business.Email}}</p>
+        <p>{{business.Phone}}</p>
 
+    </div>
+    {%endfor%}
+</div>
 {%endblock%}

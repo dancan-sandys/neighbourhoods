@@ -16,15 +16,20 @@
     <p>{{form.Name}}</p>
     <p> {{form.category}}</p>
     <p>{{form.Description}}</p>
-    <p><strong>Select Neigbourhood of operation:</strong>   {{form.Neighbourhood}}</p>
+    <p>
+        <strong>Select Neigbourhood of operation:</strong>
+        <select name="neighbourhood">
+            {%for neighbourhood in neighbourhoods%}
+            <option value="{{neighbourhood.id}}">{{neighbourhood.Name}}</option>
+
+            {%endfor%}
+        </select>
+    </p>
     <p>{{form.Email}}</p>
     <p>{{form.Phone}}</p>
-    <select>
-        <option value="volvo"></option>
-        <option value="saab">Saab</option>
-        <option value="mercedes">Mercedes</option>
-        <option value="audi">Audi</option>
-      </select>
+
+
+
     <button type="submit" class="btn btn-dark" value="submit"> Submit</button>
 
 </form>

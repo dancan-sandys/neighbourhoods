@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+
+{%block content%}
+{%block styles%}
+    {{block.super}}
+    <link rel="stylesheet" href="../../static/css/bootstrap.css">
+   
+    
+{%endblock%}
+
+    
+    <div class="business card">
+        <p>Category: {{business.category}}</p>
+        <p>{{business.Name}}</p>
+        <p>{{business.owner.username}}</p>
+        <p>{{business.Description}}</p>
+        <p>{{business.Neighbourhood.Name}}</p>
+        <p>{{business.Email}}</p>
+        <p>{{business.Phone}}</p>
+
+    </div>
+
+
+
+{%endblock%}
