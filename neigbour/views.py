@@ -52,9 +52,10 @@ def myneigbourhood(request):
 
 def profile(request):
     User = request.user
-    User = user.objects.get(user = User)
+    account = user.objects.get(user = User)
+    mybusinesses = Business.objects.filter(owner = User)
 
-    return render(request, 'users/profile.html',{"account":User })
+    return render(request, 'users/profile.html',{"account":account, "businesses": mybusinesses })
 
 
 def allneighbourhoods(request):

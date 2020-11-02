@@ -1,7 +1,27 @@
 {%extends 'base.html'%}
 
 {%block content%}
+<div class="profpic">
+    <img src="{{account.Profilephoto}}" alt="i">
+</div>
 
-{{account.Profilephoto}}
+<div class="container profile">
+    <p> Username : {{account.user.username}}</p>
+    <p> Neigbourhood : {{account.Neighbourhood.Name}}</p>
+    <p> Email : {{account.Email}}</p>
+    <p> Phone Number : {{account.Phone}}</p>
+</div>
 
-{%endblock%}    
+<div class="business">
+    <h4 class="text-center">My Businesses</h4>
+    <ul>
+        {%for business in businesses%}
+            <li>{{business.Name}}</li>
+            <p>Category : {{business.category}}</p>
+            <p>{{business.Description}}</p>
+            <p>This business is located in {{business.Neighbourhood.Name}} </p>
+        {%endfor%}
+    </ul>
+</div>
+
+{%endblock%}
