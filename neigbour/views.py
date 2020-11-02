@@ -13,7 +13,7 @@ def signup(request):
             user = form.save()
             username = user.username
             password = user.password
-            return redirect(createaccount)
+            return redirect(loginpage)
 
     return render(request,'accounts/signup.html',{"form":form})
 
@@ -27,7 +27,7 @@ def loginpage(request):
 
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('profile')
 
     return render(request, 'accounts/login.html')
 
@@ -52,10 +52,13 @@ def myneigbourhood(request):
 
 def profile(request):
     User = request.user
-    account = user.objects.get(user = User)
-    mybusinesses = Business.objects.filter(owner = User)
+    try:
+        account = user.objects.get(user = User)
+        mybusinesses = Business.objects.filter(owner = User)
 
-    return render(request, 'users/profile.html',{"account":account, "businesses": mybusinesses })
+        return render(request, 'users/profile.html',{"account":account, "businesses": mybusinesses })
+    except:
+        return redirect(createaccount)
 
 
 def allneighbourhoods(request):
