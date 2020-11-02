@@ -7,12 +7,29 @@
 
 {%endblock%}
 
+<h1 class="text-center">Businesses In My Neighbourhood</h1>
+<div class="businesses">
+    {%for business in ourbusinesses%}
+    <div class="business card">
+        <p>Category: {{business.category}}</p>
+        <p>{{business.Name}}</p>
+        <p>{{business.owner.username}}</p>
+        <p>{{business.Description}}</p>
+        <p>{{business.Neighbourhood.Name}}</p>
+        <p>{{business.Email}}</p>
+        <p>{{business.Phone}}</p>
+
+    </div>
+    {%endfor%}
+</div>
+
+<h1 class="text-center">All Businesses</h1>
 <div class="businesses">
     {%for business in businesses%}
     <div class="business card">
+        <p>Category: {{business.category}}</p>
         <p>{{business.Name}}</p>
         <p>{{business.owner.username}}</p>
-        <p>{{business.category}}</p>
         <p>{{business.Description}}</p>
         <p>{{business.Neighbourhood.Name}}</p>
         <p>{{business.Email}}</p>

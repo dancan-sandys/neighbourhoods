@@ -64,9 +64,11 @@ def allneighbourhoods(request):
     return render(request, 'Neigbourhoods/allneighbourhoods.html',{"neigbourhoods":neighbourhoods})
 
 def businesses(request):
+    account = user.objects.get(user = request.user)
+    neighbourhoodbusinesses = Business.objects.filter(Neighbourhood = account.Neighbourhood)
     allbusinesses = Business.objects.all()
 
-    return render(request, 'Business/businesses.html',{"businesses":allbusinesses})
+    return render(request, 'Business/businesses.html',{"businesses":allbusinesses, "ourbusinesses":neighbourhoodbusinesses})
 
 def createaccount(request):
     form =accounts()
