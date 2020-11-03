@@ -45,6 +45,7 @@ def home(request):
 
     return render(request, 'home.html', {"user":User, "myneighbourhood":Neighbourhood})
 
+@login_required(login_url= 'login/')
 def myneigbourhood(request):
     User = request.user
     User = user.objects.get(user = User)
@@ -52,6 +53,7 @@ def myneigbourhood(request):
 
     return render(request, 'Neigbourhoods/myneigbourhood.html',{"user":User, "myneighbourhood":Neighbourhood})
 
+@login_required(login_url= 'login/')
 def profile(request):
     User = request.user
     try:
@@ -63,6 +65,7 @@ def profile(request):
         return redirect(createaccount)
 
 
+@login_required(login_url= 'login/')
 def allneighbourhoods(request):
     neighbourhoods = neighbourhood.objects.all()
 
