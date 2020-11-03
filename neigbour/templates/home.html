@@ -9,9 +9,14 @@
 
 </div>
 <div class="neighbourhood">
-    <h1 class=" text-center text-white">
-        <small>Welcome to</small> {{myneighbourhood.Name}}
-    </h1>
+    <div class="text">
+        <h1 class=" text-center text-white">
+            <small>Welcome to</small> {{myneighbourhood.Name}}
+        </h1>
+        <p class="text-center text-white">For security contact: <strong>{{myneighbourhood.securitycontact}}</strong></p>
+        <p class="text-center text-white">For Hospital Emergencies contact:
+            <strong>{{myneighbourhood.healthcontact}}</strong></p>
+    </div>
 </div>
 <br>
 <div class="neigbourhoodinfo">
@@ -19,7 +24,8 @@
     <p class="text-dark container">
         {{myneighbourhood.Info}}
     </p>
-    <p class="text-center"> {{myneighbourhood.Name}} has {{myneighbourhood.Occupantscount}} occupants using this plattform so far</p>
+    <p class="text-center"> {{myneighbourhood.Name}} has {{myneighbourhood.Occupantscount}} occupants using this
+        plattform so far</p>
 </div>
 
 

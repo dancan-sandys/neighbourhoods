@@ -16,3 +16,12 @@
 .neigbourhoodinfo{
     padding: 5% 0%;
 }
+
+.text{
+    position: relative;
+    top: 13vh;
+}
+
+.text p{
+    margin: 3%;
+}

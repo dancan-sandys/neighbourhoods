@@ -9,6 +9,8 @@ class neighbourhood(models.Model):
     City = models.CharField(max_length = 30)
     Town = models.CharField(max_length = 60)
     Info = models.TextField(max_length=500)
+    securitycontact = models.CharField(max_length=13)
+    healthcontact = models.CharField(max_length=13)
     Occupantscount = models.IntegerField()
 
     def savehood(self):
@@ -24,8 +26,8 @@ class neighbourhood(models.Model):
 class user(models.Model):
     user = models.ForeignKey(User,on_delete = models.CASCADE)
     Profilephoto = models.ImageField(upload_to= 'users/')
-    Email = models.CharField(max_length = 30)
-    Phone = models.IntegerField()
+    Email = models.EmailField(max_length = 30)
+    Phone = models.CharField(max_length=13)
     Neighbourhood =models.ForeignKey(neighbourhood, on_delete = models.CASCADE)
 
     def saveuser(self):
@@ -45,7 +47,7 @@ class Business(models.Model):
     Description = models.CharField(max_length = 30)
     Neighbourhood = models.ForeignKey(neighbourhood, on_delete =  models.CASCADE)
     Email = models.CharField(max_length= 30)
-    Phone = models.IntegerField()
+    Phone = models.CharField(max_length=13)
 
     def savebusiness(self):
         self.save()
