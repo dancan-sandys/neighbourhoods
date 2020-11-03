@@ -4,10 +4,10 @@ from . import views
 from django.contrib.auth import logout
 
 urlpatterns = [
-    url(r'^$', views.signup, name= 'signup'),
+    url(r'signup/$', views.signup, name= 'signup'),
     url(r'^login/$', views.loginpage, name= 'login'),
     url(r'logout/$', views.logoutuser, name= 'logout'),
-    url(r'home/$', views.home, name= 'home'),
+    url(r'^$', views.home, name= 'home'),
     url(r'myneighbourhood/$', views.myneigbourhood, name= 'myneighbourhood'),
     url(r'profile/$', views.profile, name = 'profile'),
     url(r'neigbourhoods/$', views.allneighbourhoods, name = 'allneighbourhoods'),

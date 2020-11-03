@@ -15,13 +15,13 @@
 
     </ul>
 
-    <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" role="search">
+    <form class="form-inline search-form my-2 my-lg-0" action="{% url 'search' %}" role="search">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" name="category" aria-label="Search">
     </form>
 
-    <span class="navbar-text text-white">
+    <span class="username navbar-text text-white">
       {{request.user}}
     </span>
-    <a href="{%%url 'logout'}">Logout</a>
+    <a class="text-white logout" href="{%url 'logout'%}">Logout</a>
     </div>
   </nav>

@@ -27,7 +27,7 @@ https://sandysneigbourhoods.herokuapp.com/
 |User wants to search for a business category|He/she enters the category in the search input|He/she is redirected to a page showing his/her search results| 
 |User wants to add a business|He/she clicks on add business button on the profile page|He/she is redirected to a business addition form which he/she is able to fill and submit|
 |User watns to view details of his neighbourhood|He/she navigates to the home page| He/she is able to see details about his /her neighbourhood includein security and health contacts|
-
+|User wants to logout|User clicks on log out button from the navbar|user is logged out|
 
 
 ## Technologies Used
