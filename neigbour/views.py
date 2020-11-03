@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from .models import user, Business, neighbourhood
 from .forms import accounts, businessaccount
+from django.contrib.auth.decorators import login_required
 
 
 def signup(request):
@@ -35,6 +36,7 @@ def logoutuser(request):
     logout(request)
     return redirect(loginpage)
 
+@login_required(login_url= 'login/')
 def home(request):
     User = request.user
     User = user.objects.get(user = User)
