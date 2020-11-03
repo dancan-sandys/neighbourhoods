@@ -36,7 +36,7 @@ class user(models.Model):
     def deleteuser(self):
         self.delete()
 
-    def update(self, profile):
+    def updateuser(self, profile):
         profile.save()
 
 

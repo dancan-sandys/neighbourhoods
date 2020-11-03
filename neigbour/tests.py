@@ -9,7 +9,7 @@ class TestUser(TestCase):
        
         self.new_neighbourhood = neighbourhood(Name='Kasarani', City='Nairobi', Town='Kasarani',Info='Yes', securitycontact='955', healthcontact='955', Occupantscount='3')
         self.new_User = User(username= 'sandys', password='Stanford2020*')
-        self.new_user = user(user= self.new_User,Neighbourhood= self.new_neighbourhood)
+        self.new_user = user(user= self.new_User, Neighbourhood= self.new_neighbourhood)
 
     def tearDown(self):
         user.objects.all().delete()
@@ -36,6 +36,10 @@ class TestUser(TestCase):
         self.new_user.deleteuser()
         users = user.objects.all()
         self.assertEqual(len(users),0)
+
+    
+
+
 
 
 
