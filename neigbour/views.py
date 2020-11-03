@@ -71,6 +71,7 @@ def allneighbourhoods(request):
 
     return render(request, 'Neigbourhoods/allneighbourhoods.html',{"neigbourhoods":neighbourhoods})
 
+@login_required(login_url= 'login/')
 def businesses(request):
     account = user.objects.get(user = request.user)
     neighbourhoodbusinesses = Business.objects.filter(Neighbourhood = account.Neighbourhood)
@@ -78,12 +79,13 @@ def businesses(request):
 
     return render(request, 'Business/businesses.html',{"businesses":allbusinesses, "ourbusinesses":neighbourhoodbusinesses})
 
-
+@login_required(login_url= 'login/')
 def singlebusiness(request, id):
     business = Business.objects.get(id = id)
 
     return render(request , 'Business/single.html',{"business": business})
 
+@login_required(login_url= 'login/')
 def createaccount(request):
     form =accounts()
     user = request.user
@@ -102,7 +104,7 @@ def createaccount(request):
     return render(request, 'users/createuser.html',{"form":form, "neighbourhoods":neighbourhoods})
 
 
-
+@login_required(login_url= 'login/')
 def createbusiness(request):
     form = businessaccount()
     neighbourhoods = neighbourhood.objects.all()
@@ -121,6 +123,7 @@ def createbusiness(request):
 
     return render(request, 'Business/create.html',{"form":form, "neighbourhoods":neighbourhoods})
 
+@login_required(login_url= 'login/')
 def searchbusiness(request):
     if 'category' in request.GET and request.GET['category']:
         searchedcategory = request.GET.get("category")
