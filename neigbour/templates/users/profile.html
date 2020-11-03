@@ -16,6 +16,7 @@
     <p> Neigbourhood : {{account.Neighbourhood.Name}}</p>
     <p> Email : {{account.Email}}</p>
     <p> Phone Number : {{account.Phone}}</p>
+    <p><a class="text-dark" href="{%url 'createbusiness'%}"><Button class="btn btn-dark">Add Business</Button></a></p>
 </div>
 
 <div class="businesses">
@@ -28,6 +29,7 @@
         <p>{{business.Neighbourhood.Name}}</p>
         <p>{{business.Email}}</p>
         <p>{{business.Phone}}</p>
+        
 
     </div>
     {%endfor%}
